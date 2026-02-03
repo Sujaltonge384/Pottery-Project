@@ -1,0 +1,401 @@
+:root {
+  --sand: #E9E4DC;
+  --beige: #D8CBB8;
+  --olive: #7A7F5A;
+  --ocean: #465C6B;
+  --charcoal: #1E1E1E;
+  --terracotta: #9C5A3C;
+}
+
+/* Canela-style luxury fallback */
+@font-face {
+  font-family: 'Canela';
+  src: local('Canela');
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Lora', serif;
+  background: var(--sand);
+  color: var(--charcoal);
+  line-height: 1.8;
+}
+
+h1, h2 {
+  font-family: 'Canela', 'Playfair Display', serif;
+  font-weight: 400;
+}
+
+.nav {
+  display: flex;
+  justify-content: space-between;
+  padding: 30px 60px;
+}
+
+.nav a {
+  margin-left: 30px;
+  text-decoration: none;
+  color: var(--charcoal);
+}
+
+.brand {
+  letter-spacing: 2px;
+}
+
+.hero {
+  height: 90vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background: var(--beige);
+}
+
+.hero h1 {
+  font-size: 3.5rem;
+}
+
+.section {
+  padding: 120px 15%;
+}
+
+.section.light {
+  background: var(--sand);
+}
+
+.section.dark {
+  background: var(--charcoal);
+  color: var(--sand);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px,1fr));
+  gap: 30px;
+  margin-top: 40px;
+}
+
+.card {
+  padding: 60px;
+  background: var(--olive);
+  color: white;
+  text-align: center;
+}
+
+.btn {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 12px 30px;
+  background: var(--terracotta);
+  color: white;
+  text-decoration: none;
+}
+
+footer {
+  text-align: center;
+  padding: 40px;
+  background: var(--charcoal);
+  color: var(--beige);
+}
+
+@media (max-width: 768px) {
+  .hero h1 {
+    font-size: 2.4rem;
+  }
+  .section {
+    padding: 80px 10%;
+  }
+}
+
+:root {
+  --sand: #E9E4DC;
+  --beige: #D8CBB8;
+  --charcoal: #1E1E1E;
+}
+
+@font-face {
+  font-family: 'Canela';
+  src: local('Canela');
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Lora', serif;
+  background: var(--sand);
+  color: var(--charcoal);
+  scroll-behavior: smooth;
+}
+
+h1, h2 {
+  font-family: 'Canela', 'Playfair Display', serif;
+  font-weight: 400;
+}
+
+.nav {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  padding: 30px 60px;
+  display: flex;
+  justify-content: space-between;
+  z-index: 10;
+  background: transparent;
+}
+
+.nav a {
+  margin-left: 30px;
+  text-decoration: none;
+  color: var(--charcoal);
+}
+
+.hero {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/*.hero-content {
+    height: 100%;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+}*/
+.hero h1 {
+  font-size: 3.5rem;
+  text-align: center;
+}
+
+.section {
+  padding: 140px 15%;
+}
+
+.section.dark {
+  background: var(--charcoal);
+  color: var(--sand);
+}
+
+.image-section {
+  height: 80vh;
+  background: #ccc; /* replace with image */
+}
+
+.text-block {
+  max-width: 600px;
+}
+
+footer {
+  padding: 60px;
+  text-align: center;
+}
+
+
+
+
+
+.reveal {
+  opacity: 0;
+  transform: translateY(60px);
+  transition: all 1.2s ease;
+}
+
+.reveal.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+
+.nav {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  padding: 30px 60px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 100;
+  transition: 
+    background 0.6s ease,
+    box-shadow 0.6s ease,
+    backdrop-filter 0.6s ease;
+  background: transparent;
+}
+
+/* Scrolled state
+.nav.scrolled {
+  background: rgba(233, 228, 220, 0.92); 
+  backdrop-filter: blur(10px);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.06);
+}
+ */
+
+ .nav.scrolled {
+  background: rgba(233, 228, 220, 0.95);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+}
+
+.nav,
+.nav a,
+.nav .logo {
+  color: #ffffff;
+  transition: color 0.4s ease;
+}
+
+
+.nav.scrolled,
+.nav.scrolled a,
+.nav.scrolled .logo {
+  color: var(--charcoal);
+}
+
+/* =========================
+   HERO SLIDER SECTION
+========================= */
+
+/* ===== HERO LAYOUT ===== */
+.hero-layout {
+  display: grid;
+  grid-template-columns: 2.2fr 1fr;
+  height: 100vh;
+
+  /* GAP BETWEEN LEFT & RIGHT */
+  column-gap: 24px; /* adjust: 16px / 24px / 32px */
+}
+
+
+/* LEFT SIDE */
+.hero-left {
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-slider,
+.slides {
+  width: 90%;
+  height: 90%;
+}
+
+.slide {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  transform: translateY(-100%);
+  transition: transform 1.3s ease;
+}
+
+.slide.active {
+  transform: translateY(0);
+}
+
+.slide.prev {
+  transform: translateY(100%);
+}
+
+/* RIGHT SIDE */
+.hero-right {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+/* RIGHT IMAGE CARDS */
+.hero-card {
+  position: relative;
+  flex: 1;
+  background-size: cover;
+  background-position: center;
+  overflow: hidden;
+
+  /* CENTER TEXT FOR BOTH TOP & BOTTOM */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  transform: scale(1);
+  transition: transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+ .hero-card:hover {
+  transform: scale(1.06);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.25);
+}
+
+/* TOP IMAGE */
+.hero-card-top {
+  background-image: url('assets/images/img-\ \(3\).jfif');
+}
+
+/* BOTTOM IMAGE */
+.hero-card-bottom {
+  background-image: url('assets/images/img-\ \(2\).jfif');
+  }
+
+/* DARK OVERLAY (important) */
+.hero-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(0,0,0,0.35),
+    rgba(0,0,0,0.6)
+  );
+  z-index: 1;
+}
+
+
+.hero-card * {
+  position: relative;
+  z-index: 2;
+}
+
+/* TEXT */
+.hero-card h2 {
+  font-family: 'Canela', 'Playfair Display', serif;
+  font-size: 32px;
+  line-height: 1.2;
+  text-align: center;
+  color: #fff;
+  position: relative;
+  z-index: 2;
+}
+
+
+/* BUTTON */
+.hero-btn {
+  position: absolute;
+  bottom: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 2;
+
+  padding: 14px 36px;
+  background: #fff;
+  color: #000;
+  font-size: 14px;
+  letter-spacing: 1px;
+  text-decoration: none;
+
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.hero-btn:hover {
+  transform: translateX(-50%) translateY(-4px);
+  box-shadow: 0 12px 30px rgba(0,0,0,0.25);
+}
+
+
+
+
