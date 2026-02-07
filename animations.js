@@ -244,28 +244,21 @@ const btn = document.getElementById('videoBtn');
 
 let playing = false;
 
-/* FOLLOW MOUSE */
-windowBox.addEventListener('mousemove', (e) => {
-  const rect = windowBox.getBoundingClientRect();
-  btn.style.left = `${e.clientX - rect.left}px`;
-  btn.style.top = `${e.clientY - rect.top}px`;
-});
-
-/* TOGGLE PLAY / STOP */
 btn.addEventListener('click', () => {
   playing = !playing;
 
   if (playing) {
     windowBox.classList.add('active');
     video.play();
-    btn.textContent ='•Stop Video';
+    btn.textContent = 'Stop Video';
   } else {
     windowBox.classList.remove('active');
     video.pause();
     video.currentTime = 0;
-    btn.textContent =' •Play Video';
+    btn.textContent = 'Play Video';
   }
 });
+
 
 const bgText = document.getElementById('bgText');
 
@@ -289,5 +282,32 @@ if (bgText) {
 }
 
 
+const section = document.querySelector('.multi-frame-section');
+const frameGroup = document.querySelector('.frame-group');
 
+window.addEventListener('scroll', () => {
+  const rect = section.getBoundingClientRect();
+  const vh = window.innerHeight;
+
+  let progress = (vh - rect.top) / vh;
+  progress = Math.max(0, Math.min(1, progress));
+
+  const moveY = progress * 180; // adjust movement amount
+
+  frameGroup.style.transform = `translateY(-${moveY}px)`;
+});
+;
+
+// 6 photo 
+
+document.querySelectorAll('.exp-slider').forEach(slider => {
+  const images = slider.querySelectorAll('img');
+  let index = 0;
+
+  setInterval(() => {
+    images[index].classList.remove('active');
+    index = (index + 1) % images.length;
+    images[index].classList.add('active');
+  }, 6000);
+});
 
