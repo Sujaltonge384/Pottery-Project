@@ -10,6 +10,89 @@ const observer = new IntersectionObserver(entries => {
 
 reveals.forEach(el => observer.observe(el));
 
+const header = document.querySelector('.nav');
+const logoImg = document.getElementById('logoImg');
+
+window.addEventListener('scroll', () => {
+  if (window.scrollY > 80) {
+    header.classList.add('scrolled');
+    logoImg.src = 'assets/images/logo-black.png';
+  } else {
+    header.classList.remove('scrolled');
+    logoImg.src = 'assets/images/logo.png';
+  }
+});
+
+// =======================
+// PAGE TRANSITION (SAFE)
+// =======================
+
+document.addEventListener('DOMContentLoaded', () => {
+  const transition = document.getElementById('pageTransition');
+  if (!transition) return;
+
+  const title = transition.querySelector('h1');
+
+  document.querySelectorAll('.nav-link').forEach(link => {
+    link.addEventListener('click', e => {
+      const href = link.getAttribute('href');
+      if (!href || href.startsWith('#')) return;
+
+      e.preventDefault();
+
+      title.textContent =
+        link.dataset.title || link.textContent.trim();
+
+      transition.classList.add('active');
+
+      setTimeout(() => {
+        window.location.href = href;
+      }, 1000);
+    });
+  });
+
+  // Page load
+  title.textContent = document.title;
+  transition.classList.add('active');
+
+  setTimeout(() => {
+    title.style.opacity = '0';
+    title.style.transform = 'translateY(-20px)';
+  }, 700);
+
+  setTimeout(() => {
+    transition.classList.remove('active');
+  }, 1200);
+});
+
+
+const goldText = document.querySelector('.text-gold');
+const blackText = document.querySelector('.text-black');
+
+let isScrolled = false;
+
+window.addEventListener('scroll', () => {
+  if (window.scrollY > 80 && !isScrolled) {
+    isScrolled = true;
+
+    goldText.classList.remove('active');
+    goldText.classList.add('exit');
+
+    blackText.classList.remove('exit');
+    blackText.classList.add('active');
+  }
+
+  if (window.scrollY <= 80 && isScrolled) {
+    isScrolled = false;
+
+    blackText.classList.remove('active');
+    blackText.classList.add('exit');
+
+    goldText.classList.remove('exit');
+    goldText.classList.add('active');
+  }
+});
+
 
 const nav = document.querySelector('.nav');
 
@@ -20,6 +103,57 @@ window.addEventListener('scroll', () => {
     nav.classList.remove('scrolled');
   }
 });
+
+// About transtion
+
+const transition = document.getElementById('pageTransition');
+const transitionTitle = transition.querySelector('h1');
+
+document.querySelectorAll('.nav-link').forEach(link => {
+  link.addEventListener('click', e => {
+    const href = link.getAttribute('href');
+    const title = link.dataset.title || link.textContent.trim();
+
+    if (!href || href.startsWith('#')) return;
+
+    e.preventDefault();
+
+    transitionTitle.textContent = title;
+    transition.classList.add('active');
+
+    setTimeout(() => {
+      window.location.href = href;
+    }, 1000);
+  });
+});
+
+window.addEventListener('load', () => {
+  const transition = document.getElementById('pageTransition');
+  const title = transition.querySelector('h1');
+
+  // use <title> tag text
+  title.textContent = document.title;
+
+  title.style.opacity = '';
+  title.style.transform = '';
+
+  transition.classList.add('active');
+
+  setTimeout(() => {
+    title.style.opacity = '0';
+    title.style.transform = 'translateY(-20px)';
+  }, 700);
+
+  setTimeout(() => {
+    transition.classList.remove('active');
+  }, 1200);
+});
+
+
+
+
+
+
 
 
 /* HERO SLIDER */
@@ -102,10 +236,10 @@ document.querySelectorAll('.letter-reveal').forEach(p => {
   const text = p.innerText;
   p.innerHTML = '';
 
-  [...text].forEach((char, i) => {
+  text.split('').forEach((char, i) => {
     const span = document.createElement('span');
     span.innerHTML = char === ' ' ? '&nbsp;' : char;
-    span.style.transitionDelay = `${i * 0.03}s`; // timing between letters
+    span.style.transitionDelay = `${i * 0.03}s`;
     p.appendChild(span);
   });
 });
@@ -239,25 +373,37 @@ progress = Math.max(0, Math.min(1, progress));
 
 
 const windowBox = document.getElementById('videoWindow');
-const video = document.getElementById('windowVideo');
+const windowVideo = document.getElementById('windowVideo');
 const btn = document.getElementById('videoBtn');
 
-let playing = false;
+if (windowBox && windowVideo && btn) {
 
-btn.addEventListener('click', () => {
-  playing = !playing;
+  let playing = false;
 
-  if (playing) {
-    windowBox.classList.add('active');
-    video.play();
-    btn.textContent = 'Stop Video';
-  } else {
-    windowBox.classList.remove('active');
-    video.pause();
-    video.currentTime = 0;
-    btn.textContent = 'Play Video';
-  }
-});
+  windowBox.addEventListener('mousemove', (e) => {
+    const rect = windowBox.getBoundingClientRect();
+    btn.style.left = `${e.clientX - rect.left}px`;
+    btn.style.top = `${e.clientY - rect.top}px`;
+  });
+
+  btn.addEventListener('click', () => {
+    playing = !playing;
+
+    if (playing) {
+      windowBox.classList.add('active');
+      windowVideo.play();
+      btn.textContent = 'Stop Video';
+    } else {
+      windowBox.classList.remove('active');
+      windowVideo.pause();
+      windowVideo.currentTime = 0;
+      btn.textContent = 'Play Video';
+    }
+  });
+
+}
+
+
 
 
 const bgText = document.getElementById('bgText');
@@ -310,4 +456,8 @@ document.querySelectorAll('.exp-slider').forEach(slider => {
     images[index].classList.add('active');
   }, 6000);
 });
+
+
+
+
 

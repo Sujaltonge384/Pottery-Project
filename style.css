@@ -38,11 +38,24 @@ h1, h2 {
   font-weight: 400;
 }
 
-.nav {
-  display: flex;
-  justify-content: space-between;
-  padding: 30px 60px;
+.nav-spacer { 
+margin-right: 20px;
+width: 70px;
 }
+
+.nav {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 24px 60px;
+  z-index: 10;
+
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+}
+
 
 .nav a {
   margin-left: 30px;
@@ -50,10 +63,71 @@ h1, h2 {
   color: var(--charcoal);
 }
 
+/* LOGO WRAPPER */
+.logo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  margin-left: 60px;
+  padding-left: 95px;
+}
+
+/* LOGO IMAGE */
+.logo img {
+  height: 56px;                /* BIG */
+  transition: height 0.4s ease;
+}
+
+/* LOGO TITLE */
+.logo h1 {
+  font-family: "Canela", serif;
+  font-size: 18px;             /* BIG */
+  letter-spacing: 2px;
+  margin: 4px 0 0;
+  color: #ffffff;
+  transition: font-size 0.4s ease, color 0.4s ease;
+}
+
+/* TAGLINE */
+.logo h2 {
+  font-family: "Lora", serif;
+  font-size: 10px;             /* NORMAL */
+  letter-spacing: 3px;
+  margin-top: 4px;
+  color: ffff(212,175,55,0.85);
+  transition: font-size 0.4s ease, color 0.4s ease;
+}
+
+.nav.scrolled .logo img {
+  height: 30px;  
+                /* SHRINK */
+}
+
+.nav.scrolled .logo h1 {
+  font-size: 12px;             /* SHRINK */
+  color: #000;
+}
+
+.nav.scrolled .logo h2 {
+  font-size: 6px;              /* SHRINK */
+  color: #000;
+}
+
+
 .brand {
   letter-spacing: 2px;
 }
+.hero-about {
+  position: relative;
+  height: 100vh;
+  width: 100%;
+  overflow: hidden;
+  background-image: url(assets/images/background-about.png);
 
+  /* 🔥 FORCE NEW STACKING CONTEXT */
+  isolation: isolate;
+}
 .hero {
   position: relative;
   height: 100vh;
@@ -199,6 +273,11 @@ hero-text {
   padding: 120px 15%;
 }
 
+.section p {
+  font-size: 15 px;
+  text-align: center;
+  color: #c28a2c;
+}
 .section.light {
   background: var(--sand);
 }
@@ -339,8 +418,112 @@ footer {
 }
 
 
+.logo-text-wrap {
+  position: relative;
+}
+
+/* MASK */
+.text-mask {
+  position: relative;
+  height: 1.6em;      /* 🔥 AUTO matches text height */
+  overflow: hidden;
+}
 
 
+/* TEXT BASE */
+.text {
+  position: absolute;
+  left: 0;
+  right: 0;
+
+  display: block;
+  text-align: center;
+
+  transform: translateY(100%);
+  opacity: 0;
+
+  transition:
+    transform 0.55s cubic-bezier(0.25, 1, 0.5, 1),
+    opacity 0.55s ease;
+}
+
+/* GOLD (TOP STATE) */
+.text-gold {
+  color: #d4af37;
+}
+
+/* BLACK (SCROLLED STATE) */
+.text-black {
+  color: #000;
+}
+
+/* ACTIVE STATE */
+.text.active {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.text.exit {
+  transform: translateY(-100%);
+  opacity: 0;
+}
+
+
+.text {
+  transition-delay: 0.05s;
+  transition : transform 0.55s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+
+/* Highlighted text */
+
+.story-highlight-section {
+  background: var(--sand);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 80px 8%;
+}
+
+/* TEXT */
+.story-text {
+  font-family: "Canela", serif;
+  font-size: clamp(1.8rem, 3vw, 2.5rem);
+  line-height: 1.55;
+  text-align: center;
+}
+
+/* WORD BASE */
+.story-text span {
+  opacity: 0.25;
+  transition: opacity 0.35s ease, color 0.35s ease;
+}
+
+/* HIGHLIGHTED WORD */
+.story-text span.active {
+  opacity: 1;
+  color: #ac940e;
+  text-shadow: #000;
+  font-size: clamp(2rem, 3vw, 2.5rem);
+}
+
+
+/* ACTIVE (HIGHLIGHTED) */
+.story-text.active {
+  opacity: 1;
+  transform: scale(1.05);
+}
+
+.story-text.active {
+  color: #2a1e12;
+  transition: all 0.7s cubic-bezier(0.25, 1, 0.5, 1);
+
+}
+@media (max-width: 768px) {
+  .story-text.active {
+    transform: scale(1);
+  }
+}
 
 .reveal {
   opacity: 0;
@@ -1158,38 +1341,30 @@ padding: 20PX;
 }
 
 /* BUTTON */
+
+/* BUTTON */
 .video-btn {
   position: absolute;
-  padding: 12px 22px;
-  font-size: 14px;
-  letter-spacing: 1px;
-  border: none;
+  top: 50%;
+  left: 50%;
+
+  transform: translate(-50%, -50%);
+  padding: 12px 26px;
+
   background: rgb(235, 191, 48);
   color: #fff;
+  border: none;
+  border-radius: 30px;
+  font-size: 14px;
+  letter-spacing: 1px;
+
   opacity: 0;
-  pointer-events: none;
-  border-radius:30px;
-  transform: translate(-50%, -50%);
+  cursor: pointer;
   transition: opacity 0.3s ease;
 }
 
-/* SHOW BUTTON ON HOVER */
-.video-window:hover .video-btn {
-  opacity: 1;
-  pointer-events: auto;
-}
-
-
-.video-window video {
-  transition: transform 0.6s ease;
-}
-
-.video-window:hover video {
-  transform: scale(1.05);
-}
-
-  
-
+/* SHOW BUTTON */
+.video-window:hover .video-btn,
 .video-window.active .video-btn {
   opacity: 1;
 }
@@ -1437,3 +1612,231 @@ text-align: center;
     height: 420px;
   }
 }
+
+
+.page-transition {
+  position: fixed;
+  inset: 0;
+  background: #f4efe6;
+  z-index: 9999;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  opacity: 0;
+  pointer-events: none;
+
+  transition: opacity 0.6s ease;
+  background-image: radial-gradient(rgba(0,0,0,0.03) 1px, transparent 1px);
+  background-size: 4px 4px;
+}
+
+/* ACTIVE COVER */
+.page-transition.active {
+  opacity: 1;
+  pointer-events: all;
+}
+
+/* TRANSITION TEXT */
+.transition-text h1 {
+  font-family: "Canela", serif;
+  font-size: clamp(3rem, 6vw, 5rem);
+  color: #000;
+
+  opacity: 0;
+  transform: translateY(30px);
+
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+/* TEXT VISIBLE */
+.page-transition.active .transition-text h1 {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* TEXT VISIBLE */
+.page-transition.active .transition-text h1 {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.nav-link {
+  color: var(--terracotta);
+}
+
+/* =========================
+   OUR VALUES SECTION
+========================= */
+
+.values-section {
+  position: relative;
+  min-height: 100vh;
+  padding: 140px 8%;
+  background-image: url("assets/images/values-bg.jpeg"); /* replace with leaf image */
+  background-size: cover;
+  background-position: center;
+  overflow: hidden;
+}
+
+/* Dark blur overlay */
+.values-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.35);
+  backdrop-filter: blur(6px);
+  z-index: 1;
+}
+
+/* Section title */
+.values-title {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  margin-bottom: 80px;
+
+  font-family: "Canela", serif;
+  font-size: 42px;
+  font-weight: 400;
+  color: #ffffff;
+}
+
+/* Cards wrapper */
+.values-cards {
+  position: relative;
+  z-index: 2;
+
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 40px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Individual card */
+.value-card {
+  background: #f4efe6;
+  padding: 40px 36px;
+  border-radius: 6px;
+
+  box-shadow: 0 30px 60px rgba(0,0,0,0.25);
+}
+
+/* Card heading */
+.value-card h3 {
+  font-family: "Canela", serif;
+  font-size: 26px;
+  font-weight: 400;
+  line-height: 1.25;
+  color: #c28a2c;
+  margin-bottom: 20px;
+}
+
+/* Card text */
+.value-card p {
+  font-family: "Lora", serif;
+  font-size: 14.5px;
+  line-height: 1.8;
+  color: #4b4b4b;
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 900px) {
+  .values-cards {
+    grid-template-columns: 1fr;
+  }
+
+  .value-card {
+    padding: 34px 28px;
+  }
+
+  .values-title {
+    font-size: 34px;
+  }
+}
+
+
+
+/* ===========================
+   ABOUT – ECO SECTION
+=========================== */
+
+.about-eco-section {
+  background: #f4efe6;
+  padding: 120px 6%;
+}
+
+/* IMAGE ROW */
+.about-image-row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+  margin-bottom: 120px;
+  margin-top: 70px;
+}
+
+.about-img {
+  overflow: hidden;
+  border-radius: 6px;
+}
+
+.about-img img {
+  width: 100%;
+  height: 520px;
+  object-fit: cover;
+  display: block;
+}
+
+/* TEXT ROW */
+.about-text-row {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 80px;
+  max-width: 1200px;
+}
+
+/* LEFT HEADING */
+.about-text-row h2 {
+  font-family: "Canela", serif;
+  font-size: 48px;
+  font-weight: 400;
+  line-height: 1.25;
+  color: #c28a2c;
+}
+
+/* RIGHT TEXT */
+.about-text p {
+  font-family: "Lora", serif;
+  font-size: 15px;
+  line-height: 1.9;
+  color: #4a4a4a;
+  margin-bottom: 20px;
+}
+
+/* ===========================
+   RESPONSIVE
+=========================== */
+
+@media (max-width: 900px) {
+  .about-image-row {
+    grid-template-columns: 1fr;
+  }
+
+  .about-img img {
+    height: 360px;
+  }
+
+  .about-text-row {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .about-text-row h2 {
+    font-size: 36px;
+  }
+}
+
