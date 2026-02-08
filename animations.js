@@ -23,34 +23,7 @@ window.addEventListener('scroll', () => {
   }
 });
 
-const textEl = document.getElementById('storyText');
-const words = textEl.innerText.split(' ');
 
-// Wrap each word in span
-textEl.innerHTML = words
-  .map(word => `<span>${word}&nbsp;</span>`)
-  .join('');
-
-const spans = textEl.querySelectorAll('span');
-
-window.addEventListener('scroll', () => {
-  const rect = textEl.getBoundingClientRect();
-  const vh = window.innerHeight;
-
-  // Scroll progress (0 → 1)
-  let progress = (vh - rect.top) / (vh * 0.8);
-  progress = Math.max(0, Math.min(1, progress));
-
-  const wordsToHighlight = Math.floor(progress * spans.length);
-
-  spans.forEach((span, index) => {
-    if (index <= wordsToHighlight) {
-      span.classList.add('active');
-    } else {
-      span.classList.remove('active');
-    }
-  });
-});
 
 // =======================
 // PAGE TRANSITION (SAFE)

@@ -86,7 +86,20 @@
 
 </section>
 
+<section class="video-trigger-section">
+  <div class="video-trigger-container" onclick="openVideoModal1()">
+    <img src="assets/images/map.png" alt="Map 1" class="video-thumbnail">
+  </div>
+</section>
 
+<div id="videoModal1" class="modal-overlay">
+  <div class="modal-content">
+    <span class="modal-close" onclick="closeVideoModal1()">&times;</span>
+    <video id="modalVideo1" controls>
+      <source src="assets/images/map-video.mp4" type="video/mp4">
+    </video>
+  </div>
+</div>
 
 <section class="values-section">
   <div class="values-overlay"></div>
@@ -124,6 +137,20 @@
   </div>
 </section>
 
+<section class="video-trigger-section">
+  <div class="video-trigger-container" onclick="openVideoModal2()">
+    <img src="assets/images/history.jpeg" alt="Map 2" class="video-thumbnail">
+  </div>
+</section>
+
+<div id="videoModal2" class="modal-overlay">
+  <div class="modal-content">
+    <span class="modal-close" onclick="closeVideoModal2()">&times;</span>
+    <video id="modalVideo2" controls>
+      <source src="assets/images/VIDEO-HERO.mp4" type="video/mp4">
+    </video>
+  </div>
+</div>
 
 <footer>
   © 2026 POTTERY
@@ -136,7 +163,7 @@
 
 
 
-
+<script src="transition.js"></script>
 <script src="animations.js"></script>
 </body>
 </html>
