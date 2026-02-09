@@ -4,7 +4,7 @@
   --olive: #7A7F5A;
   --ocean: #465C6B;
   --charcoal: #1E1E1E;
-  --terracotta: #412214;
+  --terracotta: #643621;
   --DARKRED:  rgb(31, 4, 4);
 }
 
@@ -131,6 +131,22 @@ width: 70px;
   /* 🔥 FORCE NEW STACKING CONTEXT */
   isolation: isolate;
 }
+
+.hero-shop {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;              /* full viewport height */
+  overflow: hidden;
+
+  background-image: url('assets/images/shop/shop-background.jpg');
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;         /* PERFECT FIT for hero */
+
+  isolation: isolate;
+}
+
+
 .hero {
   position: relative;
   height: 100vh;
@@ -1860,7 +1876,7 @@ text-align: center;
   display: inline-block;
   cursor: pointer;
   transition: transform 0.3s ease;
-  height: 560px;
+  height: 630px;
   width: 100%;
 }
 
@@ -1870,11 +1886,10 @@ text-align: center;
 }
 
 .video-thumbnail {
-  width: 300px;
+  width: 75%;
   border-radius: 8px;
   box-shadow: 0 20px 40px rgba(0,0,0,0.1);
-  width: 75%;
-  height: 500px;
+  height: 600PX;
 }
 
 .play-overlay {
@@ -1924,4 +1939,286 @@ text-align: center;
 .modal-content video {
   width: 100%;
   border-radius: 4px;
+}
+
+/* ===============================
+   SHOP BY CATEGORY
+================================ */
+
+.shop-category-section {
+  background: #f5f2ec;
+  padding: 120px 6%;
+  text-align: center;
+}
+
+.shop-category-title {
+  font-family: 'Canela', 'Playfair Display', serif;
+  font-size: 28px;
+  letter-spacing: 2px;
+  color: #9c6b43;
+  margin-bottom: 80px;
+}
+
+/* GRID */
+.shop-category-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(145px, 1fr));
+  gap: 60px;
+  justify-items: center;
+}
+
+
+/* ITEM */
+.category-item {
+  text-align: center;
+}
+
+/* CIRCLE IMAGE */
+.category-img {
+  width: 170px;
+  height: 170px;
+  border-radius: 50%;
+  overflow: hidden;
+  margin: 0 auto 26px auto;
+  background: #eae6df;
+}
+
+.category-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* LABEL */
+.category-item p {
+  font-family: 'Lora', serif;
+  font-size: 13px;
+  letter-spacing: 1px;
+  color: #b08a65;
+  text-transform: uppercase;
+}
+
+/* GOLD DOT ON HOVER */
+.category-img {
+  position: relative;
+}
+
+
+
+/* show on hover */
+.category-item:hover .category-img::after {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* ===============================
+   CIRCULAR RING ON HOVER
+================================ */
+
+.category-img {
+  position: relative;
+}
+
+/* ring */
+.category-img::before {
+  content: "";
+  position: absolute;
+  inset: -8px; /* controls ring distance */
+  border: 2px solid #9c6b43; /* gold ring */
+  border-radius: 50%;
+  inset: -4px;   /* closer */
+  opacity: 0;
+  transform: scale(0.8);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+/* show ring on hover */
+.category-item:hover .category-img::before {
+  opacity: 1;
+  transform: scale(1);
+}
+
+@media (min-width: 1400px) {
+  .shop-category-grid {
+    grid-template-columns: repeat(6, 1fr);
+  }
+}
+
+
+@media (max-width: 600px) {
+  .shop-category-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 40px;
+  }
+
+  .category-img {
+    width: 140px;
+    height: 140px;
+  }
+}
+
+
+/* ===============================
+   HISTORY SECTION
+================================ */
+
+.history-section {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 64px;
+  padding: 120px 10%;
+  background: var(--sand);
+  align-items: center;
+}
+
+/* LEFT IMAGE */
+.history-image {
+  height: 720px;
+  background-size: cover;
+  background-position: center;
+  border-radius: 6px;
+  box-shadow: 0 30px 60px rgba(0,0,0,0.25);
+}
+
+/* RIGHT CONTENT */
+.history-content h2 {
+  font-family: 'Canela', 'Playfair Display', serif;
+  font-size: 30px;
+  line-height: 1.4;
+  color: var(--terracotta);
+  margin-bottom: 20px;
+}
+
+.history-content p {
+  font-family: 'Lora', serif;
+  font-size: 15px;
+  line-height: 1.8;
+  color: #666;
+  max-width: 520px;
+}
+
+
+/* OVERLAY TEXT */
+.map-overlay-text {
+  position: absolute;
+  left: 50%;
+  bottom: 40px;
+  transform: translateX(-50%);
+  z-index: 2;
+
+  background: rgba(31, 4, 4, 0.85);
+  color: #fff;
+  padding: 12px 28px;
+  border-radius: 40px;
+
+  font-size: 14px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+/* OPTIONAL HOVER EFFECT */
+.video-trigger-container:hover .map-overlay-text {
+  transform: translateX(-50%) translateY(-6px);
+  box-shadow: 0 10px 30px rgba(31, 4, 4, 0.4);
+}
+
+
+
+/* ===============================
+   PLACES OF INTEREST
+================================ */
+
+.places-section {
+  padding: 120px 6%;
+  background: #fff;
+}
+
+.places-header {
+  margin-bottom: 50px;
+}
+
+.places-subtitle {
+  font-size: 20px;
+  letter-spacing: 2px;
+  color: rgb(119, 35, 35); /* green accent */
+  font-family: 'Lora', serif;
+}
+
+.places-title {
+  font-family: 'Canela', 'Playfair Display', serif;
+  font-size: 42px;
+  font-weight: 400;
+  margin-top: 10px;
+  color: #1e1e1e;
+}
+
+/* GRID */
+.places-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 30px;
+}
+
+/* CARD */
+.place-card {
+  position: relative;
+  height: 420px;
+  overflow: hidden;
+  border-radius: 6px;
+  text-decoration: none;
+}
+
+.place-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.8s ease;
+}
+
+/* OVERLAY */
+.place-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    rgba(0,0,0,0.6),
+    rgba(0,0,0,0.1)
+  );
+  display: flex;
+  align-items: flex-end;
+  padding: 24px;
+}
+
+.place-overlay h3 {
+  font-family: 'Canela', serif;
+  font-size: 22px;
+  color: #fff;
+}
+
+/* HOVER */
+.place-card:hover img {
+  transform: scale(1.08);
+}
+
+/* ZOOM ON HOVER */
+.place-card:hover img {
+  transform: scale(1.12);  /* 🔥 zoom amount */
+}
+/* RESPONSIVE */
+@media (max-width: 992px) {
+  .places-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 576px) {
+  .places-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .places-title {
+    font-size: 32px;
+  }
 }

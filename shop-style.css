@@ -1,0 +1,562 @@
+/* ===============================
+   HERO SPLIT SECTION
+================================ */
+
+.hero-split-section {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 20px;
+  padding: 20px;
+  margin-top: 50px;
+}
+
+/* LEFT */
+.hero-left {
+  height: 620px;
+  overflow: hidden;
+  position: relative;
+}
+
+.hero-left-track {
+  height: 300%;
+  transition: transform 1s ease-in-out;
+}
+
+.hero-left-slide {
+  height: 33.333%;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+}
+
+.hero-text {
+  position: absolute;
+  bottom: 40px;
+  left: 40px;
+  color: #fff;
+}
+
+.hero-text h2 {
+  font-size: 36px;
+  font-family: 'Canela', serif;
+}
+
+.hero-text p {
+  margin-top: 10px;
+  font-size: 14px;
+}
+
+/* RIGHT */
+.hero-right {
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+  gap: 20px;
+}
+
+.hero-right-card {
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-right-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s ease;
+}
+
+/* ONLY RIGHT IMAGE ZOOM */
+.hero-right-card.zoom:hover img {
+  transform: scale(1.08);
+}
+
+/* RIGHT TEXT */
+.right-text {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  text-align: center;
+}
+
+.right-text.bottom {
+  flex-direction: column;
+}
+
+.hero-btn {
+  margin-top: 16px;
+  padding: 10px 24px;
+  background: #fff;
+  color: #000;
+  font-size: 13px;
+  text-decoration: none;
+}
+
+
+
+/* ==========================
+   TRENDING NOW
+========================== */
+
+.trending-section {
+  padding: 120px 6%;
+  background: #fff;
+}
+
+.trending-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 60px;
+}
+
+.trending-header h2 {
+  font-family: 'Canela', serif;
+  font-size: 30px;
+  color: #9c6b43;
+}
+
+.trending-header a {
+  font-size: 14px;
+  text-decoration: underline;
+  color: #9c6b43;
+}
+
+/* SLIDER */
+.trending-slider {
+  position: relative;
+}
+
+.trending-window {
+  overflow: hidden;
+}
+
+.trending-track {
+  display: flex;
+  gap: 40px;
+  transition: transform 0.6s ease;
+}
+
+/* CARD */
+.trend-card {
+  width: 240px;
+  flex-shrink: 0;
+  position: relative;
+}
+
+/* DISCOUNT */
+.discount {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  background: #8b6a4a;
+  color: #fff;
+  font-size: 12px;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
+}
+
+/* IMAGE */
+.trend-img {
+  position: relative;
+  height: 260px;
+  overflow: hidden;
+}
+
+.trend-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: opacity 0.4s ease;
+}
+
+.img-hover {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+}
+
+.trend-card:hover .img-hover {
+  opacity: 1;
+}
+
+.trend-card:hover .img-main {
+  opacity: 0;
+}
+
+/* TEXT */
+.cat {
+  font-size: 12px;
+  color: #999;
+  margin-top: 16px;
+  letter-spacing: 1px;
+}
+
+.trend-card h3 {
+  font-size: 16px;
+  margin: 6px 0;
+  color: #5a3a1a;
+}
+
+.price {
+  font-size: 14px;
+}
+
+.price del {
+  color: #aaa;
+}
+
+/* ARROWS */
+/* BUTTON BASE */
+.trend-btn {
+  position: absolute;
+  top: 35%;
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  border: none;
+  background-color: rgb(68, 36, 36);
+  font-size: 22px;
+  cursor: pointer;
+  opacity: 0;
+  pointer-events: none; /* IMPORTANT */
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  z-index: 10;
+}
+
+/* POSITION */
+.trend-btn.left {
+  left: -20px;
+}
+
+.trend-btn.right {
+  right: -20px;
+}
+
+/* SHOW ONLY ON HOVER */
+.trending-slider:hover .trend-btn {
+  opacity: 1;
+  pointer-events: auto; /* ENABLE CLICK */
+  transform: scale(1);
+}
+
+/* OPTIONAL HOVER FEEDBACK */
+.trend-btn:hover {
+  transform: scale(1.1);
+}
+
+
+/* ===============================
+   CUSTOMER REVIEWS
+================================ */
+
+.reviews-section {
+  background: #f6f3ed;
+  padding: 120px 6%;
+  text-align: center;
+}
+
+.reviews-title {
+  font-family: 'Canela', serif;
+  font-size: 32px;
+  color: #9c6b43;
+  letter-spacing: 1px;
+}
+
+.reviews-subtitle {
+  margin-top: 12px;
+  font-size: 15px;
+  color: #8a6a4d;
+}
+
+/* LAYOUT */
+.reviews-wrapper {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  gap: 60px;
+  margin-top: 80px;
+  align-items: center;
+}
+
+/* LEFT IMAGE */
+.reviews-image img {
+  width: 100%;
+  height: 420px;
+  object-fit: cover;
+}
+
+/* RIGHT CONTENT */
+.reviews-content {
+  position: relative;
+  padding: 60px;
+  background: #fff;
+  height: 420px;
+  text-align: center;
+  align-content: center;
+}
+
+/* REVIEW */
+.review-slide {
+  display: none;
+}
+
+.review-slide.active {
+  display: block;
+}
+
+.review-text {
+  font-family: 'Canela', serif;
+  font-size: 22px;
+  line-height: 1.6;
+  color: #7a4a2e;
+}
+
+.review-author {
+  display: block;
+  margin-top: 30px;
+  font-size: 13px;
+  letter-spacing: 2px;
+  color: #b08a65;
+}
+
+/* ARROW */
+.review-arrow {
+  position: absolute;
+  bottom: 30px;
+  right: 30px;
+  width: 42px;
+  height: 42px;
+  border: none;
+  background: #9c6b43;
+  color: #fff;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+
+/* ===============================
+   ARTISAN HERO SECTION
+================================ */
+
+.artisan-hero {
+  position: relative;
+  width: 100%;
+  height: 85vh;
+  background-image: url('assets/images/shop/Artasion-background.jpg'); /* replace image */
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* DARK OVERLAY FOR READABILITY */
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.35);
+}
+
+/* CONTENT */
+.hero-content {
+  position: relative;
+  text-align: center;
+  color: #fff;
+  z-index: 2;
+  align-items: center;
+  align-content: center;
+  height: 130%x;
+}
+
+/* HEADING */
+.hero-content h1 {
+  font-family: 'Canela', 'Playfair Display', serif;
+  font-size: 48px;
+  font-weight: 400;
+  letter-spacing: 2px;
+  line-height: 1.3;
+  margin-bottom: 30px;
+  text-align: center;
+  margin-bottom: 0%;
+  align-items: center;
+  align-content: center;
+}
+
+/* BUTTON */
+.hero-btn {
+  padding: 14px 36px;
+  background: #fff;
+  color: #000;
+  font-size: 13px;
+  letter-spacing: 1.5px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  align-items: center;
+  align-content: center;
+  text-align: center;
+  margin-bottom: 100px;
+}
+
+.hero-btn:hover {
+  background: transparent;
+  color: #fff;
+  border: 1px solid #fff;
+}
+
+
+@media (max-width: 768px) {
+  .artisan-hero {
+    height: 65vh;
+  }
+
+  .hero-content h1 {
+    font-size: 32px;
+  }
+}
+
+
+/* ===============================
+   NEW ARRIVALS
+================================ */
+
+.new-arrivals-section {
+  padding: 120px 6%;
+  background: #fff;
+}
+
+.new-arrivals-header {
+  margin-bottom: 60px;
+}
+
+.new-arrivals-header h2 {
+  font-family: 'Canela', serif;
+  font-size: 30px;
+  color: #9c6b43;
+}
+
+/* GRID */
+.new-arrivals-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 40px;
+}
+
+/* CARD */
+.arrival-card {
+  position: relative;
+}
+
+/* DISCOUNT */
+.arrival-card .discount {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  background: #8b6a4a;
+  color: #fff;
+  font-size: 12px;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
+}
+
+/* IMAGE */
+.arrival-img {
+  position: relative;
+  height: 300px;
+  overflow: hidden;
+}
+
+.arrival-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: opacity 0.4s ease;
+}
+
+.arrival-img .img-hover {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+}
+
+.arrival-card:hover .img-hover {
+  opacity: 1;
+}
+
+.arrival-card:hover .img-main {
+  opacity: 0;
+}
+
+/* TEXT */
+.arrival-card .cat {
+  font-size: 12px;
+  color: #999;
+  margin-top: 16px;
+  letter-spacing: 1px;
+}
+
+.arrival-card h3 {
+  font-size: 16px;
+  margin: 6px 0;
+  color: #5a3a1a;
+}
+
+.arrival-card .price {
+  font-size: 14px;
+}
+
+
+@media (max-width: 1024px) {
+  .new-arrivals-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .new-arrivals-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+
+/* ===============================
+   IMAGE HOVER ZOOM
+================================ */
+
+.image-pair-section {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  padding: 30px;
+}
+
+/* IMAGE CONTAINER */
+.image-box {
+  overflow: hidden; /* IMPORTANT */
+}
+
+/* IMAGE */
+.image-box img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.8s ease;
+}
+
+/* ZOOM ON HOVER */
+.image-box:hover img {
+  transform: scale(1.08);
+  transition: transform 1.2s ease;
+
+}
