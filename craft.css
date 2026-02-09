@@ -1,0 +1,208 @@
+/* ===============================
+   CRAFT TIMELINE (ULAMAN STYLE)
+================================ */
+
+.craft-timeline {
+  background: #f4efe6; /* warm beige */
+  padding: 140px 6%;
+  position: relative;
+  font-family: "Roboto", sans-serif;
+}
+
+/* CENTER INTRO */
+.timeline-center {
+  text-align: center;
+  margin-bottom: 160px;
+}
+
+.timeline-center h2 {
+  font-family: "Playfair Display", serif;
+  font-size: 42px;
+  font-weight: 400;
+  color: #c48a2c;
+}
+
+/* ROW */
+.timeline-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: 90px;
+  margin-bottom: 200px;
+  position: relative;
+}
+
+/* LEFT / RIGHT */
+/* CURVE LINE (hidden initially) */
+.timeline-row::before {
+  content: "";
+  position: absolute;
+  top: -120px;
+  width: 280px;
+  height: 160px;
+  border: 2px solid #c48a2c;
+  border-top: none;
+
+  opacity: 0;
+  transform: scaleY(0);
+  transform-origin: top;
+  transition: all 1.2s ease;
+}
+
+/* LEFT CURVE */
+.timeline-row.left::before {
+  left: 50%;
+  border-right: none;
+  border-radius: 0 0 0 140px;
+}
+
+/* RIGHT CURVE */
+.timeline-row.right::before {
+  right: 50%;
+  border-left: none;
+  border-radius: 0 0 140px 0;
+}
+
+/* WHEN ACTIVE */
+.timeline-row.active::before {
+  opacity: 1;
+  transform: scaleY(1);
+}
+
+/* TEXT */
+.timeline-text {
+  max-width: 440px;
+}
+
+.timeline-year {
+  font-size: 13px;
+  color: #777;
+  display: block;
+  margin-bottom: 10px;
+}
+
+.timeline-text h3 {
+  font-family: "Playfair Display", serif;
+  font-size: 28px;
+  font-weight: 400;
+  margin-bottom: 14px;
+  color: #c48a2c;
+}
+
+.timeline-text p {
+  font-size: 15px;
+  line-height: 1.9;
+  color: #555;
+  margin: 0px;
+}
+
+.timeline-image.single  {
+  margin-top: 40px;
+  
+}
+
+/* IMAGE - SINGLE */
+.timeline-image.single img {
+  width: 100%;
+  border-radius: 6px;
+}
+
+/* IMAGE - STACKED */
+.timeline-image.stacked {
+  position: relative;
+}
+
+.img-large {
+  width: 100%;
+  border-radius: 6px;
+}
+
+.img-small {
+  position: absolute;
+  top: -60px;
+  right: -60px;
+  width: 220px;
+  border-radius: 6px;
+  height: 170px;
+}
+
+/* RESPONSIVE */
+@media (max-width: 992px) {
+  .timeline-row {
+    grid-template-columns: 1fr;
+    gap: 50px;
+  }
+
+  .timeline-row::before {
+    display: none;
+  }
+
+  .img-small {
+    position: static;
+    margin-top: 20px;
+  }
+}
+
+
+/* CURVE SVG */
+.timeline-curve {
+  position: absolute;
+  top: -210px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 300px;
+  height: 160px;
+  pointer-events: none;
+  margin: 0px;
+}
+.timeline-curve-s1 {
+  position: absolute;
+  top: -210px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 300px;
+  height: 160px;
+  pointer-events: none;
+  margin: 0px;
+}
+
+.timeline-curve-s1 path {
+  fill: none;
+  stroke: #c48a2c;
+  stroke-width: 2;
+
+  /* LINE DRAW SETUP */
+  stroke-dasharray: 400;
+  stroke-dashoffset: 400;
+
+  transition: stroke-dashoffset 0.3s linear;
+}
+
+.timeline-curve path {
+  fill: none;
+  stroke: #c48a2c;
+  stroke-width: 2;
+
+  /* LINE DRAW SETUP */
+  stroke-dasharray: 400;
+  stroke-dashoffset: 400;
+
+  transition: stroke-dashoffset 0.3s linear;
+}
+
+
+.timeline-center {
+  position: relative;
+  text-align: center;
+  margin-bottom: 160px;
+}
+
+.intro-curve {
+  position: absolute;
+  left: 50%;
+  top: 100%;              /* starts right after heading */
+  transform: translateX(-50%);
+  width: 300px;
+  height: 200px;
+  pointer-events: none;
+}
