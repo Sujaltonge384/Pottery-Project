@@ -353,10 +353,8 @@ if (splitSection && leftImg && rightImg && text) {
     const vh = window.innerHeight;
 
     // Progress 0 → 1
-  let progress = (vh - rect.top) / vh;
-
-progress = Math.max(0, Math.min(1, progress));
-
+    let progress = (vh - rect.top) / vh;
+    progress = Math.max(0, Math.min(1, progress));
 
     // Move images outward from center
     const move = progress * 110;
@@ -364,14 +362,17 @@ progress = Math.max(0, Math.min(1, progress));
     leftImg.style.transform = `translateX(calc(-50% - ${move}%)) rotate(-3deg)`;
     rightImg.style.transform = `translateX(calc(50% + ${move}%)) rotate(3deg)`;
 
-    // Show text only after images separate
-    if (progress > 0.45) {
+    // ✅ Text appears AFTER 70% split
+    if (progress >= 0.7) {
       text.classList.add('show');
     } else {
       text.classList.remove('show');
     }
   });
 }
+
+
+
 
 
 const windowBox = document.getElementById('videoWindow');

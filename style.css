@@ -14,6 +14,12 @@
   background-color: var(--sand);
 }
 
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+
 
 /* Canela-style luxury fallback */
 @font-face {
@@ -38,10 +44,30 @@ h1, h2 {
   font-family: 'Canela', 'Playfair Display', serif;
   font-weight: 400;
 }
+header.nav {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  padding: 16px 40px;
+}
+
+/* RIGHT navigation */
+header.nav nav {
+  justify-self: end;
+  display: flex;
+  gap: 24px;
+}
+
+header.nav nav a {
+  text-decoration: none;
+  font-size: 17px;
+  color: #fff;
+}
 
 .nav-spacer { 
 margin-right: 20px;
 width: 70px;
+justify-self: start;
 }
 
 .nav {
@@ -59,7 +85,7 @@ width: 70px;
 
 
 .nav a {
-  margin-left: 30px;
+  margin-left: 20px;
   text-decoration: none;
 
 }
@@ -70,20 +96,19 @@ width: 70px;
   flex-direction: column;
   align-items: center;
   text-align: center;
-  margin-left: 60px;
-  padding-left: 95px;
+  justify-self: center;
 }
 
 /* LOGO IMAGE */
 .logo img {
-  height: 56px;                /* BIG */
+  height: 60px;                /* BIG */
   transition: height 0.4s ease;
 }
 
 /* LOGO TITLE */
 .logo h1 {
   font-family: "Canela", serif;
-  font-size: 18px;             /* BIG */
+  font-size: 20px;             /* BIG */
   letter-spacing: 2px;
   margin: 4px 0 0;
   color: white;
@@ -93,7 +118,7 @@ width: 70px;
 /* TAGLINE */
 .logo h2 {
   font-family: "Lora", serif;
-  font-size: 10px;             /* NORMAL */
+  font-size: 12px;             /* NORMAL */
   letter-spacing: 3px;
   margin-top: 4px;
   color: white;
@@ -905,7 +930,7 @@ padding: 20PX;
   font-size: 52px;
   font-weight: 400;
   line-height: 1.15;
-  color: #1f1f1f;
+  color: var(--terracotta);
   text-align: center;
 }
 
@@ -1180,7 +1205,7 @@ padding: 20PX;
 
 .circle-scroll-section {
   height: 180vh; /* VERY IMPORTANT */
-  background: #f4efe6;
+  background: var(--sand);
   position: relative;
 }
 
@@ -1198,7 +1223,7 @@ padding: 20PX;
   font-size: 42px;
   font-weight: 400;
   line-height: 1.25;
-  color: #c28a2c;
+  color: var(--terracotta);
   margin-bottom: 16px;
 }
 
@@ -1224,7 +1249,7 @@ padding: 20PX;
 .circle-mask {
   width: 1400px;
   height: 1400px;
-  background-image: url('assets/images/circle.jpg');
+  background-image: url('assets/images/circle-image.jpg');
   background-size: cover;
   background-position: center;
 
@@ -1240,18 +1265,30 @@ padding: 20PX;
 
 .split-reveal-section {
   height: 120vh;                /* scroll space */
-  background: #f4efe6;
+  background: var(--sand);
+    grid-template-columns: 1fr 1.2fr 1fr;
+
 }
 
 /* STICKY IMAGE CONTAINER */
 .split-sticky {
-  position: sticky;
+  position: relative;
   top: 0;
   height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
   overflow: hidden;
+}
+
+/* 3-column layout */
+.split-inner {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr 1fr;
+  align-items: center;
+  width: 100%;
+  padding: 0 6%;
+  gap: 60px;
 }
 
 /* IMAGE WRAPPER */
@@ -1298,19 +1335,59 @@ padding: 20PX;
 }
 
 .split-text {
+  position: relative;
   font-family: 'Lora', serif;
   font-size: 18px;
   line-height: 1.8;
   color: #2e2e2e;
-
+  text-align: center;
   opacity: 0;
-  transform: translateY(20px);
+  transform: translateY(40px);
   transition: opacity 0.6s ease, transform 0.6s ease;
 }
 
 .split-text.show {
   opacity: 1;
   transform: translateY(0);
+  pointer-events: auto;
+}
+
+/* ===============================
+   LEARN THE CRAFT BUTTON
+================================ */
+
+.learn-craft-btn {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+  align-content: center;
+}
+
+.learn-craft-btn a {
+  display: inline-block;
+  padding: 16px 44px;
+
+  border: 2px solid #5a3a1a;      /* terracotta color */
+  border-radius: 50px;
+
+  font-size: 20px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+
+  text-decoration: none;
+  color: #5a3a1a;
+  background: transparent;
+
+  transition: all 0.3s ease;
+}
+
+/* HOVER EFFECT */
+.learn-craft-btn a:hover {
+  background: #5a3a1a;
+  color: #ffffff;
+  transform: translateY(-2px);
 }
 
 
@@ -1405,7 +1482,7 @@ padding: 20PX;
   letter-spacing: 20px;
   white-space: nowrap;
 
-  color: #000;
+  color: rgba(78, 38, 15, 0.377);
   opacity: 0.35;              /* 30–40% as requested */
 
   pointer-events: none;
@@ -1666,9 +1743,9 @@ text-align: center;
 .transition-text h1 {
   font-family: "Canela", serif;
   font-size: clamp(3rem, 6vw, 5rem);
-  color: #000;
+  color: rgba(78, 38, 15, 0.377);
 
-  opacity: 0;
+  opacity: 0.5;
   transform: translateY(30px);
 
   transition: opacity 0.6s ease, transform 0.6s ease;
@@ -1688,6 +1765,8 @@ text-align: center;
 
 .nav-link {
   color: var(--terracotta);
+  font-size: 19px;
+  font-weight: 400;
 }
 
 /* =========================
@@ -1829,7 +1908,7 @@ text-align: center;
   font-size: 40px;
   font-weight: 400;
   line-height: 1.25;
-  color: #c28a2c;
+  color: var(--terracotta);
 }
 
 /* RIGHT TEXT */
@@ -1871,6 +1950,12 @@ text-align: center;
   background: var(--sand);
 }
 
+.video-trigger-section-1 {
+  text-align: center;
+  padding: 80px 0;
+  background: #fff;
+}
+
 .video-trigger-container {
   position: relative;
   display: inline-block;
@@ -1878,6 +1963,7 @@ text-align: center;
   transition: transform 0.3s ease;
   height: 630px;
   width: 100%;
+
 }
 
 .video-trigger-container:hover {
@@ -1888,7 +1974,6 @@ text-align: center;
 .video-thumbnail {
   width: 75%;
   border-radius: 8px;
-  box-shadow: 0 20px 40px rgba(0,0,0,0.1);
   height: 600PX;
 }
 
@@ -2151,7 +2236,7 @@ text-align: center;
   font-size: 42px;
   font-weight: 400;
   margin-top: 10px;
-  color: #1e1e1e;
+  color: var(--terracotta);
 }
 
 /* GRID */
@@ -2229,8 +2314,8 @@ text-align: center;
 ================================ */
 
 .about-narrative {
-  background-color: var(--sand);          /* warm beige */
-  padding: 120px 20px;
+  background-color: #fff;          /* warm beige */
+  padding-top: 90px;
 }
 
 .about-narrative__content {
@@ -2265,5 +2350,267 @@ text-align: center;
   .about-narrative__content p {
     font-size: 16px;
     line-height: 1.8;
+  }
+}
+
+/* ===============================
+   POTTERY WORKSHOP INTRO
+================================ */
+
+.workshop-intro {
+  background-color: #f6efe6; /* warm clay beige */
+  padding: 120px 20px;
+}
+
+.workshop-intro__content {
+  max-width: 720px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+/* Small tag */
+.workshop-tag {
+  display: inline-block;
+  font-size: 14px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: #643621;
+  margin-bottom: 18px;
+}
+
+/* Title */
+.workshop-intro h2 {
+  font-family: "Playfair Display", serif;
+  font-size: clamp(2.4rem, 5vw, 3.2rem);
+  font-weight: 400;
+  color: #643621;
+  margin-bottom: 28px;
+}
+
+/* Description */
+.workshop-intro p {
+  font-family: "Roboto", sans-serif;
+  font-size: 17px;
+  line-height: 1.9;
+  color: #4a4a4a;
+  margin-bottom: 40px;
+}
+
+/* CTA Button */
+.workshop-btn {
+  display: inline-block;
+  padding: 14px 34px;
+  border: 1px solid #643621;
+  color: #643621;
+  text-decoration: none;
+  font-size: 15px;
+  letter-spacing: 0.8px;
+  transition: all 0.3s ease;
+}
+
+.workshop-btn:hover {
+  background-color: #643621;
+  color: #fff;
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .workshop-intro {
+    padding: 80px 16px;
+  }
+
+  .workshop-intro p {
+    font-size: 16px;
+  }
+}
+
+
+/* ===============================
+   CONTACT SECTION
+================================ */
+
+.contact-section {
+  background-color: #fff; /* warm neutral */
+  padding: 120px 20px;
+  align-items: center;
+  align-content: center;
+}
+
+.contact-wrapper {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.contact-title {
+  font-family: "Playfair Display", serif;
+  font-size: clamp(2.5rem, 5vw, 3.5rem);
+  font-weight: 400;
+  color: #643621;
+  
+  text-align: center;
+}
+
+/* Card */
+.contact-card {
+  background: #fff;
+  padding: 48px 50px;
+}
+
+.contact-card h3 {
+  font-family: "Playfair Display", serif;
+  font-size: 1.6rem;
+  font-weight: 400;
+  color: #3a2a1f;
+  margin-bottom: 32px;
+  text-align: center;
+}
+
+/* Info rows */
+.contact-item {
+  margin-bottom: 22px;
+}
+
+.contact-label {
+  display: block;
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: #5a2d1b;
+  margin-bottom: 6px;
+  text-align: center;
+}
+
+.contact-item p {
+  font-family: "Roboto", sans-serif;
+  font-size: 16px;
+  line-height: 1;
+  text-align: center;
+  color: #4a4a4a;
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .contact-card {
+    padding: 36px 28px;
+  }
+
+  .contact-title {
+    margin-bottom: 40px;
+  }
+}
+
+
+/* ===============================
+   MODERN CONTACT SECTION
+================================ */
+
+.contact-modern {
+  background: #f6efe6;
+  padding: 120px 20px;
+}
+
+.contact-container {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+}
+
+/* LEFT */
+.contact-info h2 {
+  font-family: "Playfair Display", serif;
+  font-size: 2.6rem;
+  color: #643621;
+  margin-bottom: 16px;
+}
+.contact h1 {
+  font-family: "Playfair Display", serif;
+  font-size: 3.6rem;
+  color: #643621;
+  margin-bottom: 60px;
+  text-align: center;
+}
+
+.contact-intro {
+  font-size: 16px;
+  line-height: 1.8;
+  color: #4a4a4a;
+  margin-bottom: 36px;
+}
+
+.contact-list .contact-item {
+  display: flex;
+  gap: 14px;
+  margin-bottom: 22px;
+}
+
+.contact-item .icon {
+  font-size: 18px;
+  color: #c48a2c;
+}
+
+.contact-item p,
+.contact-item a {
+  font-size: 15px;
+  color: #3f3f3f;
+  text-decoration: none;
+  line-height: 1.6;
+}
+
+/* MAP */
+.contact-map iframe {
+  width: 100%;
+  height: 100%;
+  min-height: 340px;
+  border: none;
+  border-radius: 6px;
+}
+
+/* FORM */
+.contact-form-wrapper {
+  max-width: 600px;
+  margin: 80px auto 0;
+  text-align: center;
+}
+
+.contact-form-wrapper h3 {
+  font-family: "Playfair Display", serif;
+  font-size: 1.8rem;
+  color: #643621;
+  margin-bottom: 24px;
+}
+
+.contact-form {
+  display: grid;
+  gap: 14px;
+}
+
+.contact-form input,
+.contact-form textarea {
+  padding: 14px;
+  font-size: 15px;
+  border: 1px solid #ccc;
+  background: transparent;
+}
+
+.contact-form button {
+  margin-top: 10px;
+  padding: 14px;
+  background: #643621;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  transition: opacity 0.3s ease;
+}
+
+.contact-form button:hover {
+  opacity: 0.85;
+}
+
+/* MOBILE */
+@media (max-width: 900px) {
+  .contact-container {
+    grid-template-columns: 1fr;
   }
 }
