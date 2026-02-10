@@ -283,62 +283,57 @@
 <section class="experience-section" style="background-color: #E9E4DC ;">
   <div class="craft-exp"><h2>Shaped slowly. Fired carefully.
       Finished with respect for material and time.
-    </h2>
-    </div>
+      </h2>
+   </div>
+
   <div class="experience-grid">
 
     <div class="exp-card tall">
       <div class="exp-slider">
-        <img src="assets/images/img-1 (1).jpeg" class="active">
-        <img src="assets/images/img-1 (2).jpeg">
-        <img src="assets/images/img-1 (3).jpeg">
+        <img src="assets/images/craft/img-1.jpg" class="active">
+        <img src="assets/images/craft/img-7.jpeg">
+        <img src="assets/images/craft/img-4.jpg">
       </div>
-      <span class="exp-label">Private Tennis Court</span>
     </div>
 
     <div class="exp-card vtall">
       <div class="exp-slider">
-        <img src="assets/images/img-1 (1).jpeg" class="active">
-        <img src="assets/images/img-1 (2).jpeg">
-        <img src="assets/images/img-1 (3).jpeg">
+        <img src="assets/images/craft/img-2.jpg" class="active">
+        <img src="assets/images/craft/img-8.jpeg">
+        <img src="assets/images/craft/img-6.jpg">
       </div>
-      <span class="exp-label">Pool Flower Decorations</span>
     </div>
 
     <div class="exp-card tall">
       <div class="exp-slider">
-       <img src="assets/images/img-1 (1).jpeg" class="active">
-        <img src="assets/images/img-1 (2).jpeg">
-        <img src="assets/images/img-1 (3).jpeg">
+       <img src="assets/images/craft/img-3.jpg" class="active">
+        <img src="assets/images/craft/img-9.jpeg">
+        <img src="assets/images/craft/img-12.jpg">
       </div>
-      <span class="exp-label">VIP Airport Transfer</span>
     </div>
 
     <div class="exp-card medium">
       <div class="exp-slider">
-        <img src="assets/images/img-1 (1).jpeg" class="active">
-        <img src="assets/images/img-1 (2).jpeg">
-        <img src="assets/images/img-1 (3).jpeg">
+        <img src="assets/images/craft/img-4.jpg" class="active">
+        <img src="assets/images/craft/img-10.jpg">
+        <img src="assets/images/craft/img-5.jpg">
       </div>
-      <span class="exp-label">Ulaman Grand Journey</span>
     </div>
 
     <div class="exp-card short">
       <div class="exp-slider">
-        <img src="assets/images/img-1 (1).jpeg" class="active">
-        <img src="assets/images/img-1 (2).jpeg">
-        <img src="assets/images/img-1 (3).jpeg">
+        <img src="assets/images/craft/img-5.jpg" class="active">
+        <img src="assets/images/craft/img-11.jpg">
+        <img src="assets/images/craft/img-8.jpeg">
       </div>
-      <span class="exp-label">Romantic Bed Decorations</span>
     </div>
 
     <div class="exp-card medium">
       <div class="exp-slider">
-        <img src="assets/images/img-1 (1).jpeg" class="active">
-        <img src="assets/images/img-1 (2).jpeg">
-        <img src="assets/images/img-1 (3).jpeg">
+        <img src="assets/images/craft/img-6.jpg" class="active">
+        <img src="assets/images/craft/img-12.jpg">
+        <img src="assets/images/craft/img-2.jpg">
       </div>
-      <span class="exp-label">Birthday Celebrations</span>
     </div>
 
   </div>
@@ -438,7 +433,18 @@
   <br>
    All rights reserved © 2026 Kumbharam Village
 </footer>
+<script>
+    document.querySelectorAll('.exp-slider').forEach(slider => {
+  const images = slider.querySelectorAll('img');
+  let index = 0;
 
+  setInterval(() => {
+    images[index].classList.remove('active');
+    index = (index + 1) % images.length;
+    images[index].classList.add('active');
+  }, 6000);
+});
+</script>
 <script src="craft.js"></script>
 <script src="transition.js"></script>
 <script src="animations.js"></script>

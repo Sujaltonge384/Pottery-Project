@@ -1003,7 +1003,7 @@ padding: 20PX;
 
 /* CARD */
 .room-card {
-  min-width: 380px;
+  width: 280px;
   font-family: 'Lora', serif;
   flex-shrink: 0;
 }
