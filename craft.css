@@ -217,3 +217,13 @@
   height: 200px;
   pointer-events: none;
 }
+
+
+.craft-exp {
+    text-align: center;
+    margin: 20px;
+    color: #643621;
+    margin-bottom: 80px;
+    background-color: #E9E4DC;
+    font-size: 25px;
+}
