@@ -1318,14 +1318,14 @@ padding: 20PX;
 .split-image.left {
   left: 37%;
   transform: translateX(-50%) rotate(-3deg); /* start at center */
-  background-image: url('assets/images/slide\ left.jpg');
+  background-image: url('assets/images/image\ 1\ for\ carft.jpg.jpeg');
 }
 
 /* RIGHT IMAGE */
 .split-image.right {
   right: 37%;
   transform: translateX(50%) rotate(3deg); /* start at center */
-  background-image: url('assets/images/slide\ rirgt.jpg')
+  background-image: url('assets/images/image\ 2\ for\ carft.jpg.jpeg')
 }
 
 /* TEXT BELOW */
@@ -1352,6 +1352,12 @@ padding: 20PX;
   pointer-events: auto;
 }
 
+.split-text.show p {
+  text-align: center;
+  justify-self: center;
+  margin-bottom: 200px;
+
+}
 /* ===============================
    LEARN THE CRAFT BUTTON
 ================================ */
