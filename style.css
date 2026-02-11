@@ -2620,3 +2620,31 @@ text-align: center;
     grid-template-columns: 1fr;
   }
 }
+
+
+
+
+.promo-video {
+  padding: 120px 20px;
+  text-align: center;
+  background: #f6efe6;
+}
+
+.promo-video h2 {
+  font-family: "Playfair Display", serif;
+  font-size: 32px;
+  color: #643621;
+  margin-bottom: 40px;
+}
+
+.video-wrapper {
+  max-width: 900px;
+  margin: 0 auto;
+  aspect-ratio: 16 / 9;
+}
+
+.video-wrapper iframe {
+  width: 100%;
+  height: 100%;
+  border-radius: 8px;
+}
