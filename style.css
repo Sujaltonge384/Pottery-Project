@@ -2648,3 +2648,23 @@ text-align: center;
   height: 100%;
   border-radius: 8px;
 }
+
+
+.promo-video-link {
+  padding: 20px 20px;
+  text-align: center;
+  background: var(--sand);
+}
+
+.promo-link {
+  font-family: "Playfair Display", serif;
+  font-size: 20px;
+  color: #000;
+  text-decoration: none;
+  border-bottom: 1px solid #643621;
+  transition: all 0.3s ease;
+}
+
+.promo-link:hover {
+  opacity: 0.7;
+}
