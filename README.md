@@ -130,7 +130,4 @@ fetch(`https://api.openweathermap.org/data/2.5/weather?q=Nilambur&units=metric&a
 https://kumbharan-village.netlify.app/
 ```
 
-🌍 Help you deploy it on GitHub Pages
 
-
-Tell me what you want next 🚀
