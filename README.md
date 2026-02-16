@@ -124,12 +124,11 @@ fetch(`https://api.openweathermap.org/data/2.5/weather?q=Nilambur&units=metric&a
 
 ---
 
-## 🚀 **How to Run Locally**
-
-Clone the repository:
+## 🚀 **Run live Website**
 
 ```bash
-git clone https://github.com/your-username/kumbharam-village.git
+https://kumbharan-village.netlify.app/
+```
 
 🌍 Help you deploy it on GitHub Pages
 
