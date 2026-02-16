@@ -101,7 +101,7 @@ Uses **OpenWeatherMap API** to display real-time temperature and weather descrip
 ```
 fetch(`https://api.openweathermap.org/data/2.5/weather?q=Nilambur&units=metric&appid=YOUR_API_KEY`)
 
-
+```
 ---
 
 ## 🎨 **Design Philosophy**
