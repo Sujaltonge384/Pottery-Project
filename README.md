@@ -49,111 +49,56 @@
 └── assets/
 
 
-🏠 Home Page
 
+---
 
-Full-screen background video
+## 🏠 **Home Page**
 
+• Full-screen background video  
+• Story highlight scroll animation  
+• Village introduction slider  
+• Product showcase section  
+• Promotional video link  
 
-Story highlight scroll animation
+---
 
+## 🏺 **Craft Page**
 
-Village introduction slider
+• Elegant vertical timeline layout  
+• SVG animated curves on scroll  
+• Step-by-step pottery process:
+  • Clay Collection  
+  • Clay Preparation  
+  • Shaping  
+  • Firing  
+  • Finishing  
 
+---
 
-Product showcase section
+## 🛍️ **Shop Page**
 
+• Split hero layout (large vertical slider + side feature cards)  
+• Category grid  
+• Trending products slider with hover image swap  
+• Smooth navigation animation  
 
-Promotional video link
+---
 
+## 📍 **Destination Pages**
 
+• Hero background video  
+• Large feature image  
+• Detailed description  
+• “How to Reach” section  
+• Weather API integration (Nilambur)  
 
-🏺 Craft Page
+---
 
+## 🌤️ **Weather Integration**
 
-Elegant vertical timeline layout
+Uses **OpenWeatherMap API** to display real-time temperature and weather description for Nilambur.
 
-
-SVG animated curves on scroll
-
-
-Step-by-step pottery process:
-
-
-Clay Collection
-
-
-Clay Preparation
-
-
-Shaping
-
-
-Firing
-
-
-Finishing
-
-
-
-
-
-🛍️ Shop Page
-
-
-Split hero layout (large vertical slider + side feature cards)
-
-
-Category grid
-
-
-Trending products slider with hover image swap
-
-
-Smooth navigation animation
-
-
-
-📍 Destination Pages
-Includes detailed tourism pages for:
-
-
-Nilambur
-
-
-Hanging Bridge
-
-
-Adyanpara Waterfall
-
-
-Thunchan Memorial
-
-
-Arya Vaidya Sala
-
-
-Features:
-
-
-Hero background video
-
-
-Large feature image
-
-
-Detailed description
-
-
-“How to Reach” section
-
-
-Weather API integration (Nilambur)
-
-
-
-🌤️ Weather Integration
-Uses OpenWeatherMap API to display real-time temperature and weather description for Nilambur.
+```js
 fetch(`https://api.openweathermap.org/data/2.5/weather?q=Nilambur&units=metric&appid=YOUR_API_KEY`)
 
 
